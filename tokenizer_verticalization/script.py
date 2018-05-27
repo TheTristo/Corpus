@@ -8,12 +8,12 @@ tokenize_regex = "([\.,?:;!\[\]{}\(\)„“‚‘»«›‹…])"
 
 #source text directory ()
 def tokenize():
-    global op
-    with open("input/text.txt", "r", encoding="utf-8") as f:
-        file = f.read()
-        op = re.sub("\n+", " ", file) #konce řádků na mezeru
-        op = re.sub("("+ tokenize_regex + "|" + "\s" +  vocabulary + ")", r" \1 ", op) #tokenizace + zkratky
-        op = re.sub(r"(  |   |    )", r" ", op) #dvoj a více mezery na jednu
+	global op
+	with open("input/text.txt", "r", encoding="utf-8") as f:
+		file = f.read()
+		op = re.sub("\n+", " ", file) #konce řádků na mezeru
+		op = re.sub("("+ tokenize_regex + "|" + "\s" +  vocabulary + ")", r" \1 ", op) #tokenizace + zkratky
+		op = re.sub(r"(  |   |    )", r" ", op) #dvoj a více mezery na jednu
 
 def vert():
     global op
@@ -35,7 +35,7 @@ def output():
         print(op)
     if out == "F":
         write()
-        print("File output.txt created")
+        print("File output/output.txt created")
     else:
         a = input("Do you want to stop the program (Y/N): ")
         if a == "N":
